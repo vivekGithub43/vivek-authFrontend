@@ -9,8 +9,7 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "architect": {,
-      "outputPath": "dist/auth"
+      "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
