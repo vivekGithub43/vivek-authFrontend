@@ -9,7 +9,8 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "architect": {
+      "architect": {,
+      "outputPath": "dist/auth"
         "build": {
           "builder": "@angular/build:application",
           "options": {
@@ -31,7 +32,8 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            ],
+            "outputPath": "dist/auth"
           },
           "configurations": {
             "production": {
