@@ -1,0 +1,72 @@
+
+
+
+
+<!-- Modal -->
+<div class="modal fade " id="loginModal" tabindex="-1" >
+  <div class="modal-dialog custom-modal">
+    <div class="modal-content">
+      
+      <div class="modal-body bg-light d-flex justify-content-center align-items-center shadow rounded">
+   
+<div class="row w-100">
+    <div class=" col-12 col-md-4 mx-auto  p-4 ">
+  <!-- Inside login modal -->
+<h3 class="text-center mb-4" *ngIf="!forgotMode">Login</h3>
+<h3 class="text-center mb-4" *ngIf="forgotMode">Forgot Password</h3>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="!forgotMode">
+  <!-- Email -->
+  <div class="mb-4">
+    <input type="email" [(ngModel)]="loginData.email" name="email" class="form-control" placeholder="Enter your email" required>
+  </div>
+
+  <!-- Password -->
+  <div class="mb-4">
+    <input type="password" [(ngModel)]="loginData.password" name="password" class="form-control" placeholder="Enter your password" required>
+  </div>
+
+  <!-- Submit -->
+  <div class="d-grid mb-3">
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+  </div>
+        <!-- Forgot Password link -->
+  <div class="text-center">
+    <a href="javascript:void(0)" (click)="switchToForgot()">Forgot Password?</a>
+  </div>
+
+    
+    </form>
+    <!-- Forgot Password Form -->
+<form #forgotForm="ngForm" (ngSubmit)="onForgotPassword(forgotForm)" *ngIf="forgotMode && !codeSent">
+  <div class="mb-4">
+    <input type="email" [(ngModel)]="forgotData.email" name="forgotEmail" class="form-control" placeholder="Enter your email" required>
+  </div>
+  <div class="d-grid">
+    <button type="submit" class="btn btn-warning">Send Reset Code</button>
+  </div>
+</form>
+
+<!-- Verify Code Form -->
+<form #verifyForm="ngForm" (ngSubmit)="onVerifyCode(verifyForm)" *ngIf="forgotMode && codeSent">
+  <div class="mb-4">
+    <input type="text" [(ngModel)]="forgotData.providedCode" name="code" class="form-control" placeholder="Enter verification code" required>
+  </div>
+  <div class="mb-4">
+    <input type="password" [(ngModel)]="forgotData.newPassword" name="newPassword" class="form-control" placeholder="Enter new password" required>
+  </div>
+  <div class="d-grid">
+    <button type="submit" class="btn btn-success">Verify & Reset Password</button>
+  </div>
+</form>
+
+
+    </div>
+    
+</div>
+
+      </div>
+     
+    </div>
+  </div>
+</div>

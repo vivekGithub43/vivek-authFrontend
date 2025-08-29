@@ -1,0 +1,59 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg rounded-3">
+        <div class="card-header bg-primary text-white fw-bold">
+          Create New Post
+        </div>
+        <div class="card-body">
+          <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
+            
+            <!-- Title -->
+            <div class="mb-3">
+              <label for="title" class="form-label">Post Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-control"
+                [(ngModel)]="post.title"
+                required
+                placeholder="Enter post title"
+              />
+              <div *ngIf="postForm.submitted && !post.title" class="text-danger small">
+                Title is required
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                rows="4"
+                [(ngModel)]="post.description"
+                required
+                placeholder="Enter post description"
+              ></textarea>
+              <div *ngIf="postForm.submitted && !post.description" class="text-danger small">
+                Description is required
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              [disabled]="postForm.invalid"
+            >
+              <i class="bi bi-plus-circle"></i> Create Post
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

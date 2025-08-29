@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">Authentication</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarNav" aria-controls="navbarNav" 
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" >Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" >Pricing</a>
+        </li>
+      </ul>
+
+      <!-- ✅ Keep everything (username + login/register) inside the same ms-auto flex box -->
+      <div class="d-flex flex-column flex-lg-row align-items-center gap-2 ms-auto">
+        
+        <!-- show username dropdown only if logged in -->
+        
+        <div class="dropdown" *ngIf="!isLogin && userNameLS">
+          <button class="btn dropdown-toggle d-flex align-items-center fw-bold" 
+            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{userNameLS}} <i class="bi bi-arrow-bar-down ms-1"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" (click)="signOut()">Sign Out</a></li>
+          </ul>
+        </div>
+       
+
+        <!-- Login/Register -->
+         <ng-container *ngIf="isLogin">
+         
+        <a class="btn btn-outline-primary w-100 w-md-auto" 
+           (click)="sharedServ.loginOpenModel()">Login</a>
+        <a class="btn btn-primary w-100 w-md-auto" 
+           (click)="sharedServ.registerOpenModel()">Register</a>
+         
+         </ng-container>
+      </div>
+    </div>
+  </div>
+</nav>

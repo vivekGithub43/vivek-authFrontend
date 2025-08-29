@@ -1,0 +1,20 @@
+export const API_ENDPOINTS = {
+ auth:{
+  signin:'/auth/signin',
+  signUp:'/auth/signUp',
+  signOut:'/auth/signout',
+  sendVerificationCode:'/auth/send-verification-code',
+  verifyVerificationCode:'/auth/verify-verification-code',
+  changePassword:'/auth/change-password',
+  sendForgotPasswordCode:'/auth/send-forgot-password-code',
+  verifyForgotPasswordCode:'/auth/verify-forgot-password-code'
+ },
+ posts:{
+getPosts:'/posts/all-posts',
+createPost:'/posts/create-post',
+updatePost:'/posts/update-post',
+deletePost:'/posts/delete-post',
+mypost:'/posts/my-posts',
+singlePost:'/posts/single-post'
+ }
+}

@@ -1,0 +1,9 @@
+<div *ngIf="isLoading">Loading...</div>
+
+<div *ngIf="!isLoading && post" class="card p-3">
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.description }}</p>
+  <small class="text-muted">
+    By: {{ post.userId?.name }} ({{ post.userId?.email }})
+  </small>
+</div>

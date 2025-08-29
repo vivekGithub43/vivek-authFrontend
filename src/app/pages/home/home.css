@@ -1,0 +1,29 @@
+/* Sidebar */
+.sidebar {
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  width: 250px; /* expanded width */
+}
+
+.sidebar.collapsed {
+  width: 60px; /* collapsed width */
+  padding: 1rem 0.5rem;
+  overflow: hidden;
+}
+
+/* Main content should always take remaining space */
+.content {
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+/* Make row behave like flex container */
+.row {
+  display: flex;
+  margin: 0;
+}
+.container-fluid {
+  background: linear-gradient(120deg, #89f7fe, #66a6ff); /* aqua-blue */
+  min-height: 100vh;
+  padding: 0;
+}
