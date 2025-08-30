@@ -22,10 +22,10 @@ return this.http.post(`${this.apiUrl}${API_ENDPOINTS.auth.signOut}`,{},
 )
 }
 sendVerificationCode(data:{email:string}){
-return this.http.patch(`${this.apiUrl}${API_ENDPOINTS.auth.sendVerificationCode}`,data,{withCredentials:true})  
+return this.http.patch(`${this.apiUrl}${API_ENDPOINTS.auth.sendVerificationCode}`,data)  
 }
 verifyVerificationCode(data:{email: string; providedCode: string }){
-return this.http.patch(`${this.apiUrl}${API_ENDPOINTS.auth.verifyVerificationCode}`,data,{withCredentials:true})  
+return this.http.patch(`${this.apiUrl}${API_ENDPOINTS.auth.verifyVerificationCode}`,data)  
 }
 sendForgotPasswordCode(data: { email: string }){
 return this.http.patch(`${this.apiUrl}${API_ENDPOINTS.auth.sendForgotPasswordCode}`,data)
