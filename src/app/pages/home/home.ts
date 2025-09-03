@@ -16,9 +16,13 @@ sharedServ = inject(SharedServ)
 postsList:any[]=[];
 isLoggedIn:boolean=false;
 isSidebarOpen = true; // default open
+isLoading =false;
 ngOnInit(): void {
 this.sharedServ.loginStatus$.subscribe((status) => {
     this.isLoggedIn = status;
+  });
+  this.sharedServ.loader$.subscribe((res:any)=>{
+this.isLoading=res;
   })
   this.getAllPostsApi();
 }

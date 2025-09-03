@@ -13,6 +13,13 @@ export class SharedServ {
   setUserName$ = this.setUserName.asObservable();
  private loginStatusSource = new BehaviorSubject<boolean>(!!localStorage.getItem('token'));
   loginStatus$ = this.loginStatusSource.asObservable();
+
+private loader = new BehaviorSubject<boolean>(false);
+loader$ = this.loader.asObservable();
+
+showLoader(){
+this.loader.next(true);
+}
   usernameFunction(data:any){
   this.setUserName.next(data)  
   }

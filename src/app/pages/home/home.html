@@ -1,6 +1,10 @@
 
-<div *ngIf="!isLoggedIn">
-  <!-- Public posts (before login) -->
+<div *ngIf="isLoading" class="loader-overlay">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div *ngIf="!isLoggedIn && !isLoading">
   <div class="row g-4 my-4 mx-2">
     <div *ngFor="let post of postsList" class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="card h-100 shadow-lg rounded-3">
