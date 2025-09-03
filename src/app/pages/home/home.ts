@@ -27,9 +27,11 @@ this.isLoading=res;
   this.getAllPostsApi();
 }
 getAllPostsApi(){
+  this.sharedServ.showLoader();
 this.postServ.getPosts().subscribe((res:any)=>{
   this.postsList=res.data;
-  console.log(this.postsList,'posts')
+  console.log(this.postsList,'posts');
+  this.sharedServ.hideLoader();
 })
 }
 toggleSidebar() {

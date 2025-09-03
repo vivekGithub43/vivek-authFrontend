@@ -20,6 +20,9 @@ loader$ = this.loader.asObservable();
 showLoader(){
 this.loader.next(true);
 }
+hideLoader(){
+  this.loader.next(false);
+}
   usernameFunction(data:any){
   this.setUserName.next(data)  
   }
